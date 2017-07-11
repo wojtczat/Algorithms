@@ -1,22 +1,14 @@
-""" 
-Program to find LCA of n1 and n2 using one traversal of Binary tree
-It handles all cases even when n1 or n2 is not there in tree
-"""
- 
-# A binary tree node
 class Node:
- 
     # Constructor to create a new node
     def __init__(self, key):
         self.key = key 
         self.left = None
         self.right = None
  
-# This function returns pointer to LCA of two given values n1 and n2 
+# This function returns a pointer to LCA of two given values n1 and n2 
 # v1 is set as true by this function if n1 is found
 # v2 is set as true by this function if n2 is found
 def findLCAUtil(root, n1, n2, v):
-     
     # Base Case
     if root is None:
         return None
@@ -44,7 +36,6 @@ def findLCAUtil(root, n1, n2, v):
  
  
 def find(root, k):
-     
     # Base Case
     if root is None:
         return False
@@ -58,15 +49,14 @@ def find(root, k):
 # This function returns LCA of n1 and n2 onlue if both
 # n1 and n2 are present in tree, otherwise returns None
 def findLCA(root, n1, n2):
-     
     # Initialize n1 and n2 as not visited
     v = [False, False]
  
-    # Find lac of n1 and n2 using the technique discussed above
+    # Find LCA of n1 and n2 using the technique discussed above
     lca = findLCAUtil(root, n1, n2, v)
  
     # Returns LCA only if both n1 and n2 are present in tree
-    if (v[0] and v[1] or v[0] and find(lca, n2) or v[1] and find(lca, n1)):
+    if v[0] and v[1] or v[0] and find(lca, n2) or v[1] and find(lca, n1):
         return lca
  
     # Else return None
