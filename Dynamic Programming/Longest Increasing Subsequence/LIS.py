@@ -1,15 +1,20 @@
-# LIS returns length of the longest increasing subsequence in an arr of size n
-def lis(arr):
-    n = len(arr)
-    lis = [1] * n  # Declare the list (array) for LIS and initialize LIS values for all indices
-    # Compute optimized LIS values in bottom up manner
-    for i in range (1 , n):
-        for j in range(0 , i):
-            if arr[i] > arr[j] and lis[i]< lis[j] + 1 :
-                lis[i] = lis[j]+1
-                
-    # Pick maximum of all LIS values
-    maximum = 0
-    for i in range(n):
-        maximum = max(maximum , lis[i])
-    return maximum
+def binarySearch(arr, l, r, x):
+    while l <= r:
+        mid = l + (r - l)/2;
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            l = mid + 1
+        else:
+            r = mid - 1
+    return -1
+
+def lengthOfLIS(nums):
+    dp = [0 for i in xrange(len(nums))]
+    lenLis = 0;
+    for num in nums:
+        i = Arrays.binarySearch(dp, 0, lenLis, num)
+        if (i < 0): i = -(i + 1)
+        dp[i] = num
+        if (i == lenLis): lenLis+=1
+    return lenLis

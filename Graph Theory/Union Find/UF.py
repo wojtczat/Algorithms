@@ -17,7 +17,7 @@ def union(p, q):
 
 n,k = raw_input().strip().split(' ')
 n,k = [int(n),int(k)]
-ID = [i + 1 for i in range(n)]
+ID = [i + 1 for i in xrange(n)]
 
 for a0 in xrange(k):
     x,y = raw_input().strip().split(' ')
@@ -28,8 +28,8 @@ print ID
 
 '''
 Sample input
-The first line contains two space separated integers, n (the number of integers) and 
-k (the number of transformations). The following  lines each contain two space separated 
+The first line contains two space separated integers, n (the number of integers) and
+k (the number of transformations). The following  lines each contain two space separated
 integers x and y denoting a transformation from letter x to letter y
 
 10 7
